@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-docker-hello-world
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-docker-hello-world
+  template:
+    metadata:
+      labels:
+        app: node-docker-hello-world
+    spec:
+      containers:
+      - name: node-docker-hello-world
+        image: your-dockerhub-username/node-docker-hello-world:latest
+        ports:
+        - containerPort: 3000
